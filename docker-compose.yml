@@ -5,7 +5,7 @@ services:
     ports:
       - "80:5000"
     volumes:
-      - /Users/taiwoadetiloye/Documents/development/Project/flasks/flaskstarterapp:/opt/flaskstarterapp
+      - /pathToProject/flaskstarterapp:/opt/flaskstarterapp
     links:
       #- db:mongodb
        - db:postgresdb
