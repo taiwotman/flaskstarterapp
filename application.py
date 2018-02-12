@@ -1,11 +1,17 @@
 from flask import Flask
-from flask_mongoengine import MongoEngine
+#from flask_mongoengine import MongoEngine
+from flask_sqlalchemy import SQLAlchemy #for postgres
+ 
 
-db = MongoEngine()
-
+#db = MongoEngine()
+################
+#### config ####
+################
 
 def create_app(**config_overrides):
+	#app = Flask(__name__)
 	app = Flask(__name__)
+	db = SQLAlchemy()
 	
 
 	#Load config
@@ -20,7 +26,9 @@ def create_app(**config_overrides):
 	# setup db
 	db.init_app(app)
 
-	# import blueprints
+	####################
+	#### blueprints ####
+	####################
 	from home.views import home_blueprint
 	from recipes.views import recipes_blueprint
 	from users.views import users_blueprint
